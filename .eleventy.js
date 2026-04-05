@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("src/script.js");
   eleventyConfig.addPassthroughCopy("src/blair-christopher-2026.pdf");
+  eleventyConfig.addPassthroughCopy("src/favicon.png");
 
   return {
     dir: {
