@@ -1090,6 +1090,7 @@ section:last-of-type {
     height: 2px;
     background: var(--ink);
     transform-origin: center;
+    border-radius: 1px;
 }
 
 .mobile-menu-close span:nth-child(1) {
