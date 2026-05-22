@@ -1002,9 +1002,10 @@ section:last-of-type {
 .nav-toggle span {
     display: block;
     width: 22px;
-    height: 1.5px;
+    height: 2px;
     background: var(--ink);
     transform-origin: center;
+    border-radius: 1px;
 }
 
 .nav-toggle.open span:nth-child(1) {
@@ -1184,4 +1185,3 @@ section:last-of-type {
         align-items: flex-start;
     }
 }
-
