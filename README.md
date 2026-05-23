@@ -1,7 +1,7 @@
 # anyblair.com
 
 Blair Christopher's portfolio site, built with [Eleventy](https://www.11ty.dev/)
-and powered by **Tredegar** — a small, living design system whose tokens are the single
+and powered by **Tredegar** — a personal, living design system whose tokens are the single
 source of truth for both the site's CSS and the Figma library.
 
 ## Develop
