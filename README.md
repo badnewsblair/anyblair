@@ -1,8 +1,8 @@
 # anyblair.com
 
 Blair Christopher's portfolio site, built with [Eleventy](https://www.11ty.dev/)
-and powered by **Tredegar** — a small design system whose tokens are the single
-source of truth for both the site's CSS and the companion Figma library.
+and powered by **Tredegar** — a small, living design system whose tokens are the single
+source of truth for both the site's CSS and the Figma library.
 
 ## Develop
 
@@ -23,7 +23,7 @@ compiles them into CSS custom properties.
 ```bash
 npm run tokens        # build src/tokens.css + tokens.dark.css + the Figma import file
 npm run tokens:css    # just the CSS
-npm run tokens:figma  # just the Figma payload
+npm run tokens:figma  # just the Figma import file
 ```
 
 - `tokens/primitives.json` — raw values (color, spacing, radius, type).
