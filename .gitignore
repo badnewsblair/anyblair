@@ -3,3 +3,6 @@ _site
 .DS_Store
 **/.DS_Store
 *.sync-conflict-*
+
+# Generated Figma import payload — rebuilt by `npm run tokens:figma`
+tokens/tredegar.figma.tokens.json

@@ -1,0 +1,74 @@
+/**
+ * Tredegar Design System — generated tokens (light / default).
+ * Do NOT edit by hand. Source: tokens/primitives.json + semantic.json
+ * Rebuild with: npm run tokens
+ */
+
+:root {
+  --white: #ffffff;
+  --off: #f8f8f6;
+  --gray-50: #f3f3f1;
+  --gray-100: #e8e8e5;
+  --gray-300: #c4c4be;
+  --gray-400: #9a9a90; /** Secondary text on dark surfaces (AA, ~6.2:1 on ink). */
+  --gray-500: #72726a; /** Darkened for WCAG AA (4.69:1 on white). Floor for secondary text on light. */
+  --gray-700: #4a4a44;
+  --gray-800: #2c2c28; /** Warm charcoal — muted/elevated dark surface, default border on dark. */
+  --gray-900: #232320; /** Warm charcoal — subtle dark surface, +1 elevation on ink. */
+  --ink: #1a1a18;
+  --accent: #1a5c8a; /** Slate blue. */
+  --accent-300: #6ba3d0; /** Lightened slate — accent text/interactive on dark (AA, ~6.5:1 on ink). */
+  --accent-lt: #e8f0f7;
+  --accent-900: #142b3d; /** Deep slate — accent surface on dark. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px; /** Matches --gutter. */
+  --space-11: 48px;
+  --space-12: 64px;
+  --space-13: 80px;
+  --space-14: 96px;
+  --space-15: 120px;
+  --space-16: 160px;
+  --radius-xs: 2px; /** Chips, badges. */
+  --radius-sm: 3px; /** Buttons (default --radius). */
+  --radius-md: 4px; /** Cards. */
+  --radius-lg: 6px; /** Featured cards, icon tiles. */
+  --max-width: 1120px;
+  --gutter: 40px;
+  --gutter-mobile: 24px;
+  --border-width: 1px;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --font-sans: Figtree, system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --color-background: var(--white);
+  --color-background-subtle: var(--off);
+  --color-background-muted: var(--gray-50);
+  --color-background-inverse: var(--ink);
+  --color-background-accent: var(--accent-lt);
+  --color-text-primary: var(--ink);
+  --color-text-body: var(--gray-700); /** Long-form body copy — softer than primary. */
+  --color-text-secondary: var(--gray-500); /** WCAG AA on white. Do not go lighter. */
+  --color-text-tertiary: var(--gray-300); /** Decorative only — fails AA on white. */
+  --color-text-inverse: var(--white);
+  --color-text-accent: var(--accent);
+  --color-border: var(--gray-100);
+  --color-border-subtle: var(--gray-50);
+  --color-border-strong: var(--gray-300);
+  --color-interactive: var(--accent);
+  --color-interactive-hover: var(--gray-700);
+  --font-display: var(--font-serif);
+  --font-body: var(--font-sans);
+  --font-ui: var(--font-sans);
+  --border-default: var(--border-width) solid var(--color-border); /** Composite 1px solid border using the default border color. */
+}

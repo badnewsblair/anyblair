@@ -1,0 +1,44 @@
+{
+  "color": {
+    "background": {
+      "$type": "color",
+      "default": { "$value": "{white}" },
+      "subtle":  { "$value": "{off}" },
+      "muted":   { "$value": "{gray-50}" },
+      "inverse": { "$value": "{ink}" },
+      "accent":  { "$value": "{accent-lt}" }
+    },
+    "text": {
+      "$type": "color",
+      "primary":   { "$value": "{ink}" },
+      "body":      { "$value": "{gray-700}", "$description": "Long-form body copy — softer than primary." },
+      "secondary": { "$value": "{gray-500}", "$description": "WCAG AA on white. Do not go lighter." },
+      "tertiary":  { "$value": "{gray-300}", "$description": "Decorative only — fails AA on white." },
+      "inverse":   { "$value": "{white}" },
+      "accent":    { "$value": "{accent}" }
+    },
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{gray-100}" },
+      "subtle":  { "$value": "{gray-50}" },
+      "strong":  { "$value": "{gray-300}" }
+    },
+    "interactive": {
+      "$type": "color",
+      "default": { "$value": "{accent}" },
+      "hover":   { "$value": "{gray-700}" }
+    }
+  },
+
+  "font": {
+    "display": { "$type": "fontFamily", "$value": "{font-serif}" },
+    "body":    { "$type": "fontFamily", "$value": "{font-sans}" },
+    "ui":      { "$type": "fontFamily", "$value": "{font-sans}" }
+  },
+
+  "border-default": {
+    "$type": "border",
+    "$value": { "width": "{border-width}", "style": "solid", "color": "{color.border.default}" },
+    "$description": "Composite 1px solid border using the default border color."
+  }
+}

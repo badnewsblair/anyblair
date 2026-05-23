@@ -1,0 +1,45 @@
+/**
+ * Tredegar Design System — dark theme (generated).
+ * Do NOT edit by hand. Source: tokens/semantic.dark.json
+ * Rebuild with: npm run tokens
+ */
+
+[data-theme="dark"] {
+  --color-background: var(--ink);
+  --color-background-subtle: var(--gray-900);
+  --color-background-muted: var(--gray-800);
+  --color-background-inverse: var(--off); /** Flips to a light surface in dark mode. */
+  --color-background-accent: var(--accent-900);
+  --color-text-primary: var(--off);
+  --color-text-body: var(--gray-300); /** Softer body copy on dark (~10:1 on ink). */
+  --color-text-secondary: var(--gray-400); /** WCAG AA on ink (~6.2:1). */
+  --color-text-tertiary: var(--gray-500); /** Decorative only on dark. */
+  --color-text-inverse: var(--ink);
+  --color-text-accent: var(--accent-300);
+  --color-border: var(--gray-800);
+  --color-border-subtle: var(--gray-900);
+  --color-border-strong: var(--gray-700);
+  --color-interactive: var(--accent-300);
+  --color-interactive-hover: var(--off);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --color-background: var(--ink);
+  --color-background-subtle: var(--gray-900);
+  --color-background-muted: var(--gray-800);
+  --color-background-inverse: var(--off); /** Flips to a light surface in dark mode. */
+  --color-background-accent: var(--accent-900);
+  --color-text-primary: var(--off);
+  --color-text-body: var(--gray-300); /** Softer body copy on dark (~10:1 on ink). */
+  --color-text-secondary: var(--gray-400); /** WCAG AA on ink (~6.2:1). */
+  --color-text-tertiary: var(--gray-500); /** Decorative only on dark. */
+  --color-text-inverse: var(--ink);
+  --color-text-accent: var(--accent-300);
+  --color-border: var(--gray-800);
+  --color-border-subtle: var(--gray-900);
+  --color-border-strong: var(--gray-700);
+  --color-interactive: var(--accent-300);
+  --color-interactive-hover: var(--off);
+  }
+}

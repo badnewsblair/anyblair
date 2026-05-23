@@ -1,9 +1,14 @@
 {
   "name": "anyblair",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Blair Christopher's portfolio site, built with Eleventy on the Tredegar design system.",
   "scripts": {
+    "tokens:css": "node sd.config.mjs",
+    "tokens:figma": "node scripts/build-figma-tokens.js",
+    "tokens": "npm run tokens:css && npm run tokens:figma",
+    "build": "npm run tokens && eleventy",
+    "serve": "npm run tokens && eleventy --serve",
+    "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +16,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.5",
+    "style-dictionary": "^4.4.0"
   }
 }

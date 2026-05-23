@@ -35,7 +35,7 @@ const nio = new IntersectionObserver((entries) => {
       links.forEach(l => l.style.color = '');
       const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
       if (active && !active.classList.contains('nav-cta')) {
-        active.style.color = 'var(--ink)';
+        active.style.color = 'var(--color-text-primary)';
       }
     }
   });
@@ -79,3 +79,52 @@ mobileLinks.forEach(link => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMenu();
 });
+
+// Theme toggle (light / dark) — remembers an explicit choice, otherwise follows the OS
+const THEME_KEY = 'tredegar-theme';
+const themeToggle = document.getElementById('themeToggle');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function storedTheme() {
+  try {
+    const t = localStorage.getItem(THEME_KEY);
+    return t === 'light' || t === 'dark' ? t : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function effectiveTheme() {
+  return storedTheme() || (prefersDark.matches ? 'dark' : 'light');
+}
+
+function syncToggleLabel() {
+  if (!themeToggle) return;
+  const isDark = effectiveTheme() === 'dark';
+  themeToggle.setAttribute(
+    'aria-label',
+    isDark ? 'Switch to light theme' : 'Switch to dark theme'
+  );
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+}
+
+if (themeToggle) {
+  syncToggleLabel();
+
+  themeToggle.addEventListener('click', () => {
+    const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (e) {}
+    syncToggleLabel();
+  });
+
+  // If the visitor hasn't made an explicit choice, follow live OS changes.
+  prefersDark.addEventListener('change', () => {
+    if (!storedTheme()) {
+      document.documentElement.removeAttribute('data-theme');
+      syncToggleLabel();
+    }
+  });
+}

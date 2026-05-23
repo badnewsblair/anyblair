@@ -1,0 +1,63 @@
+{
+  "white":      { "$type": "color", "$value": "#ffffff" },
+  "off":        { "$type": "color", "$value": "#f8f8f6" },
+  "gray-50":    { "$type": "color", "$value": "#f3f3f1" },
+  "gray-100":   { "$type": "color", "$value": "#e8e8e5" },
+  "gray-300":   { "$type": "color", "$value": "#c4c4be" },
+  "gray-400":   { "$type": "color", "$value": "#9a9a90", "$description": "Secondary text on dark surfaces (AA, ~6.2:1 on ink)." },
+  "gray-500":   { "$type": "color", "$value": "#72726a", "$description": "Darkened for WCAG AA (4.69:1 on white). Floor for secondary text on light." },
+  "gray-700":   { "$type": "color", "$value": "#4a4a44" },
+  "gray-800":   { "$type": "color", "$value": "#2c2c28", "$description": "Warm charcoal — muted/elevated dark surface, default border on dark." },
+  "gray-900":   { "$type": "color", "$value": "#232320", "$description": "Warm charcoal — subtle dark surface, +1 elevation on ink." },
+  "ink":        { "$type": "color", "$value": "#1a1a18" },
+  "accent":     { "$type": "color", "$value": "#1a5c8a", "$description": "Slate blue." },
+  "accent-300": { "$type": "color", "$value": "#6ba3d0", "$description": "Lightened slate — accent text/interactive on dark (AA, ~6.5:1 on ink)." },
+  "accent-lt":  { "$type": "color", "$value": "#e8f0f7" },
+  "accent-900": { "$type": "color", "$value": "#142b3d", "$description": "Deep slate — accent surface on dark." },
+
+  "space": {
+    "$type": "dimension",
+    "1":  { "$value": "4px" },
+    "2":  { "$value": "8px" },
+    "3":  { "$value": "12px" },
+    "4":  { "$value": "16px" },
+    "5":  { "$value": "20px" },
+    "6":  { "$value": "24px" },
+    "7":  { "$value": "28px" },
+    "8":  { "$value": "32px" },
+    "9":  { "$value": "36px" },
+    "10": { "$value": "40px", "$description": "Matches --gutter." },
+    "11": { "$value": "48px" },
+    "12": { "$value": "64px" },
+    "13": { "$value": "80px" },
+    "14": { "$value": "96px" },
+    "15": { "$value": "120px" },
+    "16": { "$value": "160px" }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "xs": { "$value": "2px", "$description": "Chips, badges." },
+    "sm": { "$value": "3px", "$description": "Buttons (default --radius)." },
+    "md": { "$value": "4px", "$description": "Cards." },
+    "lg": { "$value": "6px", "$description": "Featured cards, icon tiles." }
+  },
+
+  "max-width":     { "$type": "dimension", "$value": "1120px" },
+  "gutter":        { "$type": "dimension", "$value": "40px" },
+  "gutter-mobile": { "$type": "dimension", "$value": "24px" },
+  "border-width":  { "$type": "dimension", "$value": "1px" },
+
+  "font-serif": { "$type": "fontFamily", "$value": ["Libre Baskerville", "Georgia", "serif"] },
+  "font-sans":  { "$type": "fontFamily", "$value": ["Figtree", "system-ui", "sans-serif"] },
+
+  "font-weight": {
+    "$type": "fontWeight",
+    "regular":  { "$value": 400 },
+    "medium":   { "$value": 500 },
+    "semibold": { "$value": 600 },
+    "bold":     { "$value": 700 }
+  },
+
+  "ease-out": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1] }
+}

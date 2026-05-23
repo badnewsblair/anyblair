@@ -1,29 +1,10 @@
 /* ─────────────────────────────────────────
    TOKENS
+   Generated from tokens/*.json via Style Dictionary and served from
+   tokens.css (linked before this file in index.html).
+   Do NOT hand-edit token values here — edit tokens/*.json and run:
+       npm run tokens
 ───────────────────────────────────────── */
-:root {
-    --white: #ffffff;
-    --off: #f8f8f6;
-    --gray-50: #f3f3f1;
-    --gray-100: #e8e8e5;
-    --gray-300: #c4c4be;
-    --gray-500: #72726a; /* updated for WCAG AA compliance */
-    --gray-700: #4a4a44;
-    --ink: #1a1a18;
-    --accent: #1a5c8a; /* slate blue */
-    --accent-lt: #e8f0f7;
-
-    --serif: "Libre Baskerville", Georgia, serif;
-    --sans: "Figtree", system-ui, sans-serif;
-
-    --max: 1120px;
-    --gutter: 40px;
-
-    --radius: 3px;
-    --border: 1px solid var(--gray-100);
-
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* ─────────────────────────────────────────
    RESET & BASE
@@ -41,9 +22,9 @@ html {
 }
 
 body {
-    font-family: var(--sans);
-    background: var(--white);
-    color: var(--ink);
+    font-family: var(--font-sans);
+    background: var(--color-background);
+    color: var(--color-text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -60,7 +41,7 @@ a {
    LAYOUT HELPERS
 ───────────────────────────────────────── */
 .container {
-    max-width: var(--max);
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--gutter);
 }
@@ -72,13 +53,13 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.96);
+    background: color-mix(in srgb, var(--color-background) 96%, transparent);
     backdrop-filter: blur(8px);
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
 }
 
 .nav-inner {
-    max-width: var(--max);
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--gutter);
     height: 64px;
@@ -95,17 +76,17 @@ header {
 }
 
 .nav-name {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 15px;
     font-weight: 400;
     letter-spacing: 0.01em;
-    color: var(--ink);
+    color: var(--color-text-primary);
 }
 
 .nav-title {
     font-size: 11px;
     font-weight: 400;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     letter-spacing: 0.04em;
 }
 
@@ -118,20 +99,78 @@ header {
 .nav-links a {
     font-size: 14px;
     font-weight: 500;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    color: var(--ink);
+    color: var(--color-text-primary);
 }
 
 .nav-cta {
     font-size: 13px;
     font-weight: 500;
-    color: var(--accent) !important;
+    color: var(--color-text-accent) !important;
     text-decoration: none !important;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-body);
+    cursor: pointer;
+    transition:
+        color 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.theme-toggle:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-border-strong);
+    background: var(--color-background-muted);
+}
+
+.theme-toggle svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Show the moon in light mode (tap to go dark), the sun in dark mode (tap to go light).
+   Selectors are qualified with .theme-toggle so they outrank `.theme-toggle svg`. */
+.theme-toggle .theme-icon-moon {
+    display: block;
+}
+.theme-toggle .theme-icon-sun {
+    display: none;
+}
+[data-theme="dark"] .theme-toggle .theme-icon-moon {
+    display: none;
+}
+[data-theme="dark"] .theme-toggle .theme-icon-sun {
+    display: block;
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .theme-icon-moon {
+        display: none;
+    }
+    :root:not([data-theme="light"]) .theme-toggle .theme-icon-sun {
+        display: block;
+    }
 }
 
 /* ─────────────────────────────────────────
@@ -139,11 +178,11 @@ header {
 ───────────────────────────────────────── */
 .hero {
     padding: 96px 0 80px;
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
 }
 
 .hero-inner {
-    max-width: var(--max);
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--gutter);
     display: grid;
@@ -160,7 +199,7 @@ header {
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--color-text-accent);
     margin-bottom: 28px;
 }
 
@@ -169,28 +208,28 @@ header {
     display: block;
     width: 20px;
     height: 1.5px;
-    background: var(--accent);
+    background: var(--color-text-accent);
 }
 
 .hero-h1 {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: clamp(40px, 5vw, 60px);
     font-weight: 400;
     line-height: 1.12;
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 28px;
 }
 
 .hero-h1 em {
     font-style: italic;
-    color: var(--accent);
+    color: var(--color-text-accent);
 }
 
 .hero-body {
     font-size: 17px;
     line-height: 1.75;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     max-width: 540px;
     margin-bottom: 40px;
 }
@@ -209,30 +248,30 @@ header {
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     transition: all 0.18s;
     cursor: pointer;
     border: none;
 }
 
 .btn-primary {
-    background: var(--ink);
-    color: var(--white);
+    background: var(--color-background-inverse);
+    color: var(--color-text-inverse);
 }
 
 .btn-primary:hover {
-    background: var(--accent);
+    background: var(--color-text-accent);
 }
 
 .btn-ghost {
     background: transparent;
-    color: var(--gray-700);
-    border: 1px solid var(--gray-100);
+    color: var(--color-text-body);
+    border: 1px solid var(--color-border);
 }
 
 .btn-ghost:hover {
-    border-color: var(--gray-300);
-    color: var(--ink);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-primary);
 }
 
 /* Hero aside card */
@@ -241,10 +280,10 @@ header {
 }
 
 .profile-card {
-    border: var(--border);
+    border: var(--border-default);
     border-radius: 6px;
     overflow: hidden;
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .profile-top {
@@ -256,7 +295,7 @@ header {
 }
 
 .profile-name {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 20px;
     font-weight: 400;
     color: var(--white);
@@ -272,13 +311,13 @@ header {
 .profile-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-top: var(--border);
+    border-top: var(--border-default);
 }
 
 .pstat {
     padding: 20px 24px;
-    border-right: var(--border);
-    border-bottom: var(--border);
+    border-right: var(--border-default);
+    border-bottom: var(--border-default);
 }
 
 .pstat:nth-child(even) {
@@ -290,29 +329,29 @@ header {
 }
 
 .pstat-n {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 30px;
     font-weight: 400;
-    color: var(--ink);
+    color: var(--color-text-primary);
     line-height: 1;
     margin-bottom: 4px;
 }
 
 .pstat-n em {
     font-style: italic;
-    color: var(--accent);
+    color: var(--color-text-accent);
 }
 
 .pstat-l {
     font-size: 11px;
     font-weight: 500;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
 .profile-tenures {
-    border-top: var(--border);
+    border-top: var(--border-default);
 }
 
 .tenure-row {
@@ -320,7 +359,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 14px 24px;
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
     transition: background 0.15s;
 }
 
@@ -328,25 +367,25 @@ header {
     border-bottom: none;
 }
 .tenure-row:hover {
-    background: var(--gray-50);
+    background: var(--color-background-muted);
 }
 
 .tenure-co {
     font-size: 14px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 2px;
 }
 
 .tenure-role-sm {
     font-size: 11px;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     font-weight: 400;
 }
 
 .tenure-yrs {
     font-size: 11px;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     white-space: nowrap;
     flex-shrink: 0;
     margin-left: 16px;
@@ -358,7 +397,7 @@ header {
 ───────────────────────────────────────── */
 section {
     padding: 80px 0;
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
 }
 
 section:last-of-type {
@@ -370,7 +409,7 @@ section:last-of-type {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--color-text-accent);
     margin-bottom: 40px;
     display: flex;
     align-items: center;
@@ -381,28 +420,28 @@ section:last-of-type {
     content: "";
     flex: 1;
     height: 1px;
-    background: var(--gray-100);
+    background: var(--color-border);
 }
 
 .section-h2 {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: clamp(28px, 3.5vw, 40px);
     font-weight: 400;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 16px;
 }
 
 .section-h2 em {
     font-style: italic;
-    color: var(--accent);
+    color: var(--color-text-accent);
 }
 
 .section-intro {
     font-size: 16px;
     line-height: 1.7;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     max-width: 640px;
     margin-bottom: 48px;
 }
@@ -411,7 +450,7 @@ section:last-of-type {
    WORK / CASE STUDIES
 ───────────────────────────────────────── */
 #work {
-    background: var(--white);
+    background: var(--color-background);
 }
 
 .work-grid {
@@ -426,8 +465,8 @@ section:last-of-type {
     gap: 32px;
     align-items: start;
     padding: 40px 36px;
-    background: var(--white);
-    border: var(--border);
+    background: var(--color-background);
+    border: var(--border-default);
     border-radius: 4px;
     text-decoration: none;
     color: inherit;
@@ -439,14 +478,14 @@ section:last-of-type {
 }
 
 .case-card:hover {
-    border-color: var(--gray-300);
+    border-color: var(--color-border-strong);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .case-card.primary {
     background: var(--ink);
-    border-color: var(--ink);
+    border-color: var(--color-text-primary);
     color: var(--white);
 }
 
@@ -457,10 +496,10 @@ section:last-of-type {
 }
 
 .case-num {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 13px;
     font-style: italic;
-    color: var(--gray-300);
+    color: var(--color-text-tertiary);
     padding-top: 4px;
 }
 
@@ -474,7 +513,7 @@ section:last-of-type {
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--color-text-accent);
     margin-bottom: 10px;
 }
 
@@ -483,7 +522,7 @@ section:last-of-type {
 }
 
 .case-title {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: clamp(22px, 2.5vw, 30px);
     font-weight: 400;
     line-height: 1.2;
@@ -498,7 +537,7 @@ section:last-of-type {
 .case-desc {
     font-size: 15px;
     line-height: 1.65;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     max-width: 580px;
     margin-bottom: 24px;
 }
@@ -516,9 +555,9 @@ section:last-of-type {
 .chip {
     font-size: 11px;
     font-weight: 500;
-    color: var(--gray-700);
-    background: var(--gray-50);
-    border: 1px solid var(--gray-100);
+    color: var(--color-text-body);
+    background: var(--color-background-muted);
+    border: 1px solid var(--color-border);
     padding: 4px 10px;
     border-radius: 2px;
 }
@@ -534,7 +573,7 @@ section:last-of-type {
     margin-top: 20px;
     font-size: 12px;
     font-weight: 500;
-    color: var(--accent);
+    color: var(--color-text-accent);
     text-decoration: none;
     letter-spacing: 0.04em;
     border-bottom: 1px solid transparent;
@@ -542,7 +581,7 @@ section:last-of-type {
 }
 
 .case-request:hover {
-    border-bottom-color: var(--accent);
+    border-bottom-color: var(--color-text-accent);
 }
 
 .case-card.primary .case-request {
@@ -557,7 +596,7 @@ section:last-of-type {
    ABOUT / PHILOSOPHY
 ───────────────────────────────────────── */
 #about {
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .about-grid {
@@ -570,7 +609,7 @@ section:last-of-type {
 .about-copy p {
     font-size: 16px;
     line-height: 1.78;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     margin-bottom: 20px;
 }
 
@@ -579,7 +618,7 @@ section:last-of-type {
 }
 
 .about-copy strong {
-    color: var(--ink);
+    color: var(--color-text-primary);
     font-weight: 600;
 }
 
@@ -591,25 +630,25 @@ section:last-of-type {
 
 .principle {
     padding: 28px 0;
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
 }
 
 .principle:first-child {
-    border-top: var(--border);
+    border-top: var(--border-default);
 }
 
 .p-num {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 11px;
     font-style: italic;
-    color: var(--accent);
+    color: var(--color-text-accent);
     margin-bottom: 8px;
 }
 
 .p-title {
     font-size: 15px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 6px;
     line-height: 1.3;
 }
@@ -617,40 +656,40 @@ section:last-of-type {
 .p-body {
     font-size: 14px;
     line-height: 1.65;
-    color: var(--gray-700);
+    color: var(--color-text-body);
 }
 
 /* ─────────────────────────────────────────
    EXPERTISE
 ───────────────────────────────────────── */
 #expertise {
-    background: var(--white);
+    background: var(--color-background);
 }
 
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    background: var(--gray-100);
-    border: var(--border);
+    background: var(--color-border);
+    border: var(--border-default);
     border-radius: 4px;
     overflow: hidden;
 }
 
 .exp-cell {
-    background: var(--white);
+    background: var(--color-background);
     padding: 36px 32px;
     transition: background 0.2s;
 }
 
 .exp-cell:hover {
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .exp-icon {
     width: 36px;
     height: 36px;
-    background: var(--accent-lt);
+    background: var(--color-background-accent);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -659,13 +698,13 @@ section:last-of-type {
 }
 
 .exp-icon svg {
-    stroke: var(--accent);
+    stroke: var(--color-text-accent);
 }
 
 .exp-title {
     font-size: 15px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 8px;
     line-height: 1.3;
 }
@@ -673,14 +712,14 @@ section:last-of-type {
 .exp-body {
     font-size: 13px;
     line-height: 1.65;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
 }
 
 /* ─────────────────────────────────────────
    CAREER
 ───────────────────────────────────────── */
 #career {
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .timeline {
@@ -694,7 +733,7 @@ section:last-of-type {
     grid-template-columns: 200px 1fr;
     gap: 48px;
     padding: 40px 0;
-    border-bottom: var(--border);
+    border-bottom: var(--border-default);
     transition: background 0.15s;
 }
 
@@ -707,13 +746,13 @@ section:last-of-type {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 4px;
 }
 
 .tl-dates {
     font-size: 13px;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     font-weight: 400;
     margin-bottom: 12px;
 }
@@ -724,14 +763,14 @@ section:last-of-type {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-lt);
+    color: var(--color-text-accent);
+    background: var(--color-background-accent);
     padding: 3px 8px;
     border-radius: 2px;
 }
 
 .tl-role {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 22px;
     font-weight: 400;
     letter-spacing: -0.015em;
@@ -741,12 +780,12 @@ section:last-of-type {
 
 .tl-role em {
     font-style: italic;
-    color: var(--accent);
+    color: var(--color-text-accent);
 }
 
 .tl-sub {
     font-size: 13px;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     margin-bottom: 20px;
     font-weight: 400;
 }
@@ -760,7 +799,7 @@ section:last-of-type {
 
 .tl-bullets li {
     font-size: 14px;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     padding-left: 18px;
     position: relative;
     line-height: 1.55;
@@ -770,7 +809,7 @@ section:last-of-type {
     content: "-";
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: var(--color-text-accent);
     font-weight: 400;
 }
 
@@ -778,21 +817,21 @@ section:last-of-type {
    TESTIMONIALS
 ───────────────────────────────────────── */
 #testimonials {
-    background: var(--off);
+    background: var(--color-background-subtle);
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2px;
-    background: var(--gray-100);
-    border: var(--border);
+    background: var(--color-border);
+    border: var(--border-default);
     border-radius: 4px;
     overflow: hidden;
 }
 
 .testimonial-card {
-    background: var(--white);
+    background: var(--color-background);
     padding: 36px 32px;
     display: flex;
     flex-direction: column;
@@ -802,14 +841,14 @@ section:last-of-type {
 }
 
 .testimonial-card:hover {
-    background: var(--gray-50);
+    background: var(--color-background-muted);
 }
 
 .testimonial-quote {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 14px;
     line-height: 1.75;
-    color: var(--gray-700);
+    color: var(--color-text-body);
     font-style: italic;
 }
 
@@ -817,7 +856,7 @@ section:last-of-type {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-top: var(--border);
+    border-top: var(--border-default);
     padding-top: 16px;
 }
 
@@ -827,7 +866,7 @@ section:last-of-type {
     border-radius: 50%;
     object-fit: cover;
     filter: grayscale(100%);
-    border: 2px solid var(--accent);
+    border: 2px solid var(--color-text-accent);
     flex-shrink: 0;
     transition: filter 0.3s;
 }
@@ -839,13 +878,13 @@ section:last-of-type {
 .testimonial-name {
     font-size: 13px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--color-text-primary);
     margin-bottom: 2px;
 }
 
 .testimonial-role {
     font-size: 11px;
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     font-weight: 400;
 }
 
@@ -866,7 +905,7 @@ section:last-of-type {
 }
 
 .contact-h2 {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: clamp(36px, 4.5vw, 56px);
     font-weight: 400;
     line-height: 1.12;
@@ -903,17 +942,17 @@ section:last-of-type {
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     transition: all 0.18s;
 }
 
 .clink-primary {
-    background: var(--white);
+    background: var(--color-background-inverse);
     color: var(--ink);
 }
 
 .clink-primary:hover {
-    background: var(--accent);
+    background: var(--color-text-accent);
     color: var(--white);
 }
 
@@ -936,7 +975,7 @@ section:last-of-type {
 }
 
 .footer-name {
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 15px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.3);
@@ -1003,7 +1042,7 @@ section:last-of-type {
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--ink);
+    background: var(--color-text-primary);
     transform-origin: center;
     border-radius: 1px;
 }
@@ -1046,7 +1085,7 @@ section:last-of-type {
     inset: 0;
     width: 100%;
     height: 100%;
-    background: var(--white);
+    background: var(--color-background);
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -1088,7 +1127,7 @@ section:last-of-type {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--ink);
+    background: var(--color-text-primary);
     transform-origin: center;
     border-radius: 1px;
 }
@@ -1103,10 +1142,10 @@ section:last-of-type {
 
 .mobile-menu-panel a {
     display: block;
-    font-family: var(--serif);
+    font-family: var(--font-serif);
     font-size: 28px;
     font-weight: 400;
-    color: var(--gray-700) !important;
+    color: var(--color-text-body) !important;
     text-decoration: none !important;
     padding: 16px 0;
     text-align: center;
@@ -1114,11 +1153,11 @@ section:last-of-type {
 }
 
 .mobile-menu-panel a:hover {
-    color: var(--ink) !important;
+    color: var(--color-text-primary) !important;
 }
 
 .mobile-menu-panel a.nav-cta {
-    color: var(--accent) !important;
+    color: var(--color-text-accent) !important;
     margin-top: 8px;
 }
 

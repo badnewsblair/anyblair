@@ -1,5 +1,7 @@
 module.exports = function (eleventyConfig) {
   // Pass through static assets
+  eleventyConfig.addPassthroughCopy("src/tokens.css");
+  eleventyConfig.addPassthroughCopy("src/tokens.dark.css");
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("src/script.js");
   eleventyConfig.addPassthroughCopy("src/blair-christopher-2026.pdf");

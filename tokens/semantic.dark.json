@@ -1,0 +1,32 @@
+{
+  "color": {
+    "background": {
+      "$type": "color",
+      "default": { "$value": "{ink}" },
+      "subtle":  { "$value": "{gray-900}" },
+      "muted":   { "$value": "{gray-800}" },
+      "inverse": { "$value": "{off}", "$description": "Flips to a light surface in dark mode." },
+      "accent":  { "$value": "{accent-900}" }
+    },
+    "text": {
+      "$type": "color",
+      "primary":   { "$value": "{off}" },
+      "body":      { "$value": "{gray-300}", "$description": "Softer body copy on dark (~10:1 on ink)." },
+      "secondary": { "$value": "{gray-400}", "$description": "WCAG AA on ink (~6.2:1)." },
+      "tertiary":  { "$value": "{gray-500}", "$description": "Decorative only on dark." },
+      "inverse":   { "$value": "{ink}" },
+      "accent":    { "$value": "{accent-300}" }
+    },
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{gray-800}" },
+      "subtle":  { "$value": "{gray-900}" },
+      "strong":  { "$value": "{gray-700}" }
+    },
+    "interactive": {
+      "$type": "color",
+      "default": { "$value": "{accent-300}" },
+      "hover":   { "$value": "{off}" }
+    }
+  }
+}
