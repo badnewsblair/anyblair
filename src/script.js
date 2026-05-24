@@ -50,18 +50,56 @@ const menuOverlay = document.getElementById('menuOverlay');
 const menuClose = document.getElementById('menuClose');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
+let lastFocused = null;
+
+function panelFocusables() {
+  const panel = mobileMenu.querySelector('.mobile-menu-panel');
+  return Array.from(
+    panel.querySelectorAll('a[href], button:not([disabled])')
+  ).filter(el => el.offsetParent !== null);
+}
+
+// Keep Tab focus inside the open menu (WCAG 2.4.3 / 2.1.2)
+function trapTab(e) {
+  if (e.key !== 'Tab') return;
+  const f = panelFocusables();
+  if (!f.length) return;
+  const first = f[0];
+  const last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
 function openMenu() {
+  lastFocused = document.activeElement;
   navToggle.classList.add('open');
   mobileMenu.classList.add('open');
   document.body.style.overflow = 'hidden';
+  navToggle.setAttribute('aria-expanded', 'true');
   navToggle.setAttribute('aria-label', 'Close menu');
+  document.addEventListener('keydown', trapTab);
+  // Move focus into the menu so keyboard users land inside it
+  const target = menuClose || panelFocusables()[0];
+  if (target) target.focus();
 }
 
 function closeMenu() {
   navToggle.classList.remove('open');
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
+  navToggle.setAttribute('aria-expanded', 'false');
   navToggle.setAttribute('aria-label', 'Open menu');
+  document.removeEventListener('keydown', trapTab);
+  // Return focus to the control that opened the menu
+  if (lastFocused) {
+    lastFocused.focus();
+    lastFocused = null;
+  }
 }
 
 navToggle.addEventListener('click', () => {

@@ -26,9 +26,10 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
         <!-- NAV -->
         <header>
-            <div class="nav-inner">
+            <nav class="nav-inner" aria-label="Primary">
                 <a href="#" class="nav-brand">
                     <span class="nav-name">Blair Christopher</span>
                     <span class="nav-title">Product Design Leader</span>
@@ -48,7 +49,7 @@
                         type="button"
                         aria-label="Switch to dark theme"
                     >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                             class="theme-icon-moon"
                             width="16"
                             height="16"
@@ -61,7 +62,7 @@
                         >
                             <path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z" />
                         </svg>
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                             class="theme-icon-sun"
                             width="16"
                             height="16"
@@ -82,18 +83,25 @@
                         class="nav-toggle"
                         id="navToggle"
                         aria-label="Open menu"
+                        aria-expanded="false"
+                        aria-controls="mobileMenu"
                     >
                         <span></span>
                         <span></span>
                     </button>
                 </div>
-            </div>
+            </nav>
         </header>
 
         <!-- MOBILE MENU -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-overlay" id="menuOverlay"></div>
-            <div class="mobile-menu-panel">
+            <div
+                class="mobile-menu-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Site menu"
+            >
                 <button
                     class="mobile-menu-close"
                     id="menuClose"
@@ -111,6 +119,7 @@
             </div>
         </div>
 
+        <main id="main-content">
         <!-- HERO -->
         <section class="hero">
             <div class="hero-inner">
@@ -131,7 +140,7 @@
                     <div class="hero-actions reveal reveal-d3">
                         <a href="#work" class="btn btn-primary">
                             View Case Studies
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="14"
                                 height="14"
                                 viewBox="0 0 14 14"
@@ -226,7 +235,7 @@
                 <div class="work-grid">
                     <!-- GitLab -->
                     <div class="case-card primary reveal reveal-d1">
-                        <div class="case-num">01</div>
+                        <div class="case-num" aria-hidden="true">01</div>
                         <div class="case-body">
                             <div class="case-tag">
                                 Product Design Leadership
@@ -258,7 +267,7 @@
 
                     <!-- GEICO -->
                     <div class="case-card reveal reveal-d2">
-                        <div class="case-num">02</div>
+                        <div class="case-num" aria-hidden="true">02</div>
                         <div class="case-body">
                             <div class="case-tag">Design Systems</div>
                             <h3 class="case-title">
@@ -349,10 +358,10 @@
                         <div class="principles">
                             <div class="principle reveal reveal-d1">
                                 <div class="p-num">01.</div>
-                                <div class="p-title">
+                                <h3 class="p-title">
                                     Lead with the business outcome, not the
                                     process
-                                </div>
+                                </h3>
                                 <div class="p-body">
                                     Velocity, adoption, accessibility at scale,
                                     those come first. The how comes second.
@@ -362,9 +371,9 @@
                             </div>
                             <div class="principle reveal reveal-d2">
                                 <div class="p-num">02.</div>
-                                <div class="p-title">
+                                <h3 class="p-title">
                                     Structure is a design problem
-                                </div>
+                                </h3>
                                 <div class="p-body">
                                     The same systems thinking that produces a
                                     great design system also produces a great
@@ -374,9 +383,9 @@
                             </div>
                             <div class="principle reveal reveal-d3">
                                 <div class="p-num">03.</div>
-                                <div class="p-title">
+                                <h3 class="p-title">
                                     Governance as invitation, not gatekeeping
-                                </div>
+                                </h3>
                                 <div class="p-body">
                                     "How do we build this together" beats "you
                                     can't build this" every time. The Blue
@@ -386,10 +395,10 @@
                             </div>
                             <div class="principle reveal reveal-d4">
                                 <div class="p-num">04.</div>
-                                <div class="p-title">
+                                <h3 class="p-title">
                                     Accessibility as default, not an
                                     afterthought
-                                </div>
+                                </h3>
                                 <div class="p-body">
                                     Good design works for everyone from the
                                     start. Accessibility isn't a compliance
@@ -420,7 +429,7 @@
                 <div class="expertise-grid">
                     <div class="exp-cell reveal reveal-d1">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -439,7 +448,7 @@
                                 <path d="M5 8h8M5 11h5" />
                             </svg>
                         </div>
-                        <div class="exp-title">Product Design</div>
+                        <h3 class="exp-title">Product Design</h3>
                         <div class="exp-body">
                             End-to-end across consumer mobile, enterprise SaaS,
                             and developer tools. iOS, iPad, web. Discovery
@@ -449,7 +458,7 @@
 
                     <div class="exp-cell reveal reveal-d2">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -463,7 +472,7 @@
                                 />
                             </svg>
                         </div>
-                        <div class="exp-title">Design Systems</div>
+                        <h3 class="exp-title">Design Systems</h3>
                         <div class="exp-body">
                             Architecture, governance, adoption, and
                             modernization at enterprise scale. Built Hue at
@@ -474,7 +483,7 @@
 
                     <div class="exp-cell reveal reveal-d3">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -487,7 +496,7 @@
                                 <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" />
                             </svg>
                         </div>
-                        <div class="exp-title">Design Leadership</div>
+                        <h3 class="exp-title">Design Leadership</h3>
                         <div class="exp-body">
                             Hiring, growing, and managing design teams. Building
                             process, critique culture, and cross-functional
@@ -498,7 +507,7 @@
 
                     <div class="exp-cell reveal reveal-d4">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -511,7 +520,7 @@
                                 <path d="M2 5h14" />
                             </svg>
                         </div>
-                        <div class="exp-title">Design Strategy</div>
+                        <h3 class="exp-title">Design Strategy</h3>
                         <div class="exp-body">
                             Translating business problems into design briefs.
                             Stakeholder alignment, competitive analysis, roadmap
@@ -522,7 +531,7 @@
 
                     <div class="exp-cell reveal reveal-d5">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -536,7 +545,7 @@
                                 />
                             </svg>
                         </div>
-                        <div class="exp-title">Research & Validation</div>
+                        <h3 class="exp-title">Research & Validation</h3>
                         <div class="exp-body">
                             Discovery, concept testing, usability sessions,
                             synthesis. Building research into the design process
@@ -547,7 +556,7 @@
 
                     <div class="exp-cell reveal reveal-d6">
                         <div class="exp-icon">
-                            <svg
+                            <svg aria-hidden="true" focusable="false"
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
@@ -580,9 +589,9 @@
                                 />
                             </svg>
                         </div>
-                        <div class="exp-title">
+                        <h3 class="exp-title">
                             Cross-Functional Collaboration
-                        </div>
+                        </h3>
                         <div class="exp-body">
                             Deep partnership with Engineering, Product, and
                             Business. Design reviews, critique norms, sprint
@@ -610,9 +619,9 @@
                             <span class="tl-badge">Director</span>
                         </div>
                         <div class="tl-content">
-                            <div class="tl-role">
+                            <h3 class="tl-role">
                                 Director, <em>Design Systems</em>
-                            </div>
+                            </h3>
                             <div class="tl-sub">
                                 Hue Design System · Hybrid (Richmond, VA /
                                 Fredericksburg, VA / Chevy Chase, MD)
@@ -648,9 +657,9 @@
                             <span class="tl-badge">Manager</span>
                         </div>
                         <div class="tl-content">
-                            <div class="tl-role">
+                            <h3 class="tl-role">
                                 Product Design <em>Manager</em>
-                            </div>
+                            </h3>
                             <div class="tl-sub">
                                 Manage & Plan Stage · Remote
                             </div>
@@ -687,9 +696,9 @@
                             <span class="tl-badge">IC to Manager</span>
                         </div>
                         <div class="tl-content">
-                            <div class="tl-role">
+                            <h3 class="tl-role">
                                 Senior Designer <em>to</em> Hybrid IC/Manager
-                            </div>
+                            </h3>
                             <div class="tl-sub">
                                 Brand Creative · Digital Design · iOS ·
                                 Richmond, VA
@@ -740,7 +749,7 @@
                 </p>
                 <div class="testimonials-grid">
                     <div class="testimonial-card reveal reveal-d1">
-                        <div class="testimonial-quote">
+                        <blockquote class="testimonial-quote">
                             "Blair set quite a high bar for what a great people
                             manager succeeds at. He always puts direct reports
                             first -- as a function of available attention and
@@ -749,7 +758,7 @@
                             Blair leading a team will get someone who knows good
                             design, good design practices, and how to foster a
                             successful team."
-                        </div>
+                        </blockquote>
                         <div class="testimonial-attr">
                             <img
                                 src="/images/ravi.jpg"
@@ -766,7 +775,7 @@
                     </div>
 
                     <div class="testimonial-card reveal reveal-d2">
-                        <div class="testimonial-quote">
+                        <blockquote class="testimonial-quote">
                             "Blair is an excellent manager. His clear and calm
                             direction through challenges, and quick recognition
                             of accomplishments, is an asset to any team. Blair
@@ -774,7 +783,7 @@
                             when to reach out. I learned a lot in our time
                             working together and his next team will be lucky to
                             have him."
-                        </div>
+                        </blockquote>
                         <div class="testimonial-attr">
                             <img
                                 src="/images/nick.jpg"
@@ -791,14 +800,14 @@
                     </div>
 
                     <div class="testimonial-card reveal reveal-d3">
-                        <div class="testimonial-quote">
+                        <blockquote class="testimonial-quote">
                             "One of Blair's key strengths is his genuine care
                             for people. He has a unique ability to create a
                             supportive and inclusive work environment where
                             everyone feels valued and encouraged to grow. He
                             never came across as micromanaging or overbearing,
                             and instead acted as a gentle guide and leader."
-                        </div>
+                        </blockquote>
                         <div class="testimonial-attr">
                             <img
                                 src="/images/daniel.jpg"
@@ -817,13 +826,13 @@
                     </div>
 
                     <div class="testimonial-card reveal reveal-d4">
-                        <div class="testimonial-quote">
+                        <blockquote class="testimonial-quote">
                             "Blair encourages us to be our best selves by
                             leading by example. He leads with heart, humility,
                             and authenticity. He leans in with fearless
                             determination to advocate for the customer
                             experience and encourages us all to do the same."
-                        </div>
+                        </blockquote>
                         <div class="testimonial-attr">
                             <img
                                 src="/images/sabrina.jpg"
@@ -860,7 +869,7 @@
                         href="/cdn-cgi/l/email-protection#117370757f746662737d7078635178727d7e64753f727e7c"
                         class="clink clink-primary"
                     >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                             width="15"
                             height="15"
                             viewBox="0 0 15 15"
@@ -880,7 +889,7 @@
                         target="_blank"
                         class="clink clink-ghost"
                     >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                             width="15"
                             height="15"
                             viewBox="0 0 15 15"
@@ -908,7 +917,7 @@
                         download
                         class="clink clink-ghost"
                     >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                             width="15"
                             height="15"
                             viewBox="0 0 15 15"
@@ -937,6 +946,7 @@
                 </div>
             </div>
         </section>
+        </main>
 
         <script src="script.js"></script>
     </body>

@@ -51,6 +51,17 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --color-on-dark-text-strong: rgba(255, 255, 255, 0.7); /** 70% — high-emphasis text on dark (8.98:1 on ink). */
+  --color-on-dark-text: rgba(255, 255, 255, 0.6); /** 60% — default text on dark (6.91:1). */
+  --color-on-dark-text-muted: rgba(255, 255, 255, 0.5); /** 50% — muted text on dark (5.25:1, AA floor). */
+  --color-on-dark-text-faint: rgba(255, 255, 255, 0.45); /** 45% — large or decorative emphasis only (4.47:1). */
+  --color-on-dark-text-decorative: rgba(255, 255, 255, 0.25); /** 25% — decorative numerals, aria-hidden (no contrast requirement). */
+  --color-on-dark-surface: rgba(255, 255, 255, 0.06); /** 6% — chip/inset fill on dark. */
+  --color-on-dark-line-faint: rgba(255, 255, 255, 0.08); /** 8% — faint hairline on dark. */
+  --color-on-dark-line-subtle: rgba(255, 255, 255, 0.1); /** 10% — subtle divider on dark. */
+  --color-on-dark-line: rgba(255, 255, 255, 0.12); /** 12% — chip border on dark. */
+  --color-on-dark-border: rgba(255, 255, 255, 0.18); /** 18% — outline border on dark. */
+  --color-on-dark-border-strong: rgba(255, 255, 255, 0.4); /** 40% — hover/emphasis border on dark. */
   --color-background: var(--white);
   --color-background-subtle: var(--off);
   --color-background-muted: var(--gray-50);

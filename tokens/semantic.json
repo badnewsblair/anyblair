@@ -27,6 +27,21 @@
       "$type": "color",
       "default": { "$value": "{accent}" },
       "hover":   { "$value": "{gray-700}" }
+    },
+    "on-dark": {
+      "$type": "color",
+      "$description": "White-alpha roles for always-dark surfaces (Contact, footer, profile header, primary card). Theme-agnostic — identical in light and dark.",
+      "text-strong":     { "$value": "#ffffffb3", "$description": "70% — high-emphasis text on dark (8.98:1 on ink)." },
+      "text":            { "$value": "#ffffff99", "$description": "60% — default text on dark (6.91:1)." },
+      "text-muted":      { "$value": "#ffffff80", "$description": "50% — muted text on dark (5.25:1, AA floor)." },
+      "text-faint":      { "$value": "#ffffff73", "$description": "45% — large or decorative emphasis only (4.47:1)." },
+      "text-decorative": { "$value": "#ffffff40", "$description": "25% — decorative numerals, aria-hidden (no contrast requirement)." },
+      "surface":         { "$value": "#ffffff0f", "$description": "6% — chip/inset fill on dark." },
+      "line-faint":      { "$value": "#ffffff14", "$description": "8% — faint hairline on dark." },
+      "line-subtle":     { "$value": "#ffffff1a", "$description": "10% — subtle divider on dark." },
+      "line":            { "$value": "#ffffff1f", "$description": "12% — chip border on dark." },
+      "border":          { "$value": "#ffffff2e", "$description": "18% — outline border on dark." },
+      "border-strong":   { "$value": "#ffffff66", "$description": "40% — hover/emphasis border on dark." }
     }
   },
 
