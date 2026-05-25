@@ -1,57 +1,62 @@
 # anyblair.com
 
-Blair Christopher's portfolio site, built with [Eleventy](https://www.11ty.dev/)
-and powered by **Tredegar** — a personal, living design system whose tokens are the single
-source of truth for both the site's CSS and the Figma library.
+This is my portfolio site. It's built with [Eleventy](https://www.11ty.dev/) and
+runs on **Tredegar**, a little design system I put together for myself. The tokens
+in Tredegar are the one place I keep colors, spacing, and type — everything else
+(the site's CSS and the Figma library) is generated from them, so nothing drifts.
 
-## Develop
+## Getting it running
 
 ```bash
 npm install
-npm run serve     # build tokens, then run Eleventy with live reload
+npm run serve     # builds the tokens, then starts Eleventy with live reload
 ```
 
-The site is plain HTML/CSS/JS under `src/`. There's no framework — just Eleventy
-passing files through and a token build step.
+Everything lives under `src/` as plain HTML, CSS, and JS. No framework, nothing
+clever — just Eleventy passing files through with a token build step in front of it.
 
 ## Tokens
 
-Design tokens live in `tokens/` as [W3C DTCG](https://tr.designtokens.org/) JSON
-and are the canonical source. [Style Dictionary](https://styledictionary.com/)
-compiles them into CSS custom properties.
+The design tokens live in `tokens/` as [W3C DTCG](https://tr.designtokens.org/)
+JSON, and that's the source of truth. [Style Dictionary](https://styledictionary.com/)
+turns them into CSS custom properties for me.
 
 ```bash
-npm run tokens        # build src/tokens.css + tokens.dark.css + the Figma import file
+npm run tokens        # builds src/tokens.css + tokens.dark.css + the Figma import file
 npm run tokens:css    # just the CSS
 npm run tokens:figma  # just the Figma import file
 ```
 
-- `tokens/primitives.json` — raw values (color, spacing, radius, type).
-- `tokens/semantic.json` — named roles that reference primitives (light theme).
-- `tokens/semantic.dark.json` — dark-theme overrides.
+Here's what's where:
 
-Never hand-edit `src/tokens*.css` — they're generated. Edit the JSON and rebuild.
+- `tokens/primitives.json` — the raw values (color, spacing, radius, type).
+- `tokens/semantic.json` — named roles that point at the primitives (light theme).
+- `tokens/semantic.dark.json` — the dark-theme overrides.
 
-See **[`tokens/SYNC.md`](tokens/SYNC.md)** for the full workflow: how the build
-works, how to keep Figma in sync (both directions), and how dark mode is layered.
+One rule I keep for myself: don't hand-edit `src/tokens*.css`. Those are generated.
+Edit the JSON and rebuild instead.
+
+If you want the whole picture — how the build works, how I keep Figma in sync in
+both directions, and how dark mode is layered on top — it's all in
+**[`tokens/SYNC.md`](tokens/SYNC.md)**.
 
 ## Themes
 
-Light is the default. Dark mode follows the OS by default and can be toggled in
-the nav (the choice is remembered). It's driven entirely by tokens — see the
-dark-mode section of `tokens/SYNC.md`.
+Light is the default. Dark mode follows whatever the OS is set to, and you can also
+flip it yourself in the nav — it remembers your choice. The whole thing runs off
+tokens; the details are in the dark-mode section of `tokens/SYNC.md`.
 
-## Structure
+## How it's laid out
 
 ```
-tokens/        Canonical design tokens (DTCG JSON) + workflow docs
-scripts/       Build helpers (Figma token export)
+tokens/        The canonical design tokens (DTCG JSON) + workflow docs
+scripts/       Build helpers (the Figma token export)
 sd.config.mjs  Style Dictionary config
-src/           Eleventy input — HTML, JS, images, and generated tokens*.css
+src/           Eleventy input — HTML, JS, images, and the generated tokens*.css
 _site/         Build output (gitignored)
 ```
 
-## Build
+## Building it
 
 ```bash
 npm run build     # tokens + Eleventy → _site/
