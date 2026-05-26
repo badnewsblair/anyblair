@@ -699,7 +699,7 @@ section:last-of-type {
    BUILT IN THE OPEN
 ───────────────────────────────────────── */
 #built-in-the-open {
-  background: var(--white);
+  background: var(--color-background);
 }
 
 .open-card {
@@ -708,9 +708,9 @@ section:last-of-type {
   gap: 80px;
   align-items: center;
   padding: 48px;
-  border: var(--border);
+  border: var(--border-default);
   border-radius: 4px;
-  background: var(--off);
+  background: var(--color-background-subtle);
 }
 
 .open-card-title {
@@ -719,20 +719,20 @@ section:last-of-type {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--color-text-primary);
   margin-bottom: 16px;
 }
 
 .open-card-title em {
   font-family: var(--serif);
   font-style: italic;
-  color: var(--accent);
+  color: var(--color-text-accent);
 }
 
 .open-card-body {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--gray-700);
+  color: var(--color-text-body);
   margin-bottom: 28px;
   max-width: 440px;
 }
@@ -745,20 +745,20 @@ section:last-of-type {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
-  background: var(--gray-100);
-  border: var(--border);
+  background: var(--color-border);
+  border: var(--border-default);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .open-stack-item {
-  background: var(--white);
+  background: var(--color-background);
   padding: 20px 24px;
   transition: background 0.15s;
 }
 
 .open-stack-item:hover {
-  background: var(--gray-50);
+  background: var(--color-background-muted);
 }
 
 .open-stack-label {
@@ -766,20 +766,20 @@ section:last-of-type {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gray-500);
+  color: var(--color-text-secondary);
   margin-bottom: 4px;
 }
 
 .open-stack-value {
   font-size: 15px;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--color-text-primary);
 }
 
 .title-italic {
   font-family: "Libre Baskerville", Georgia, serif;
   font-style: italic;
-  color: var(--accent);
+  color: var(--color-text-accent);
 }
 
 @media (max-width: 768px) {
