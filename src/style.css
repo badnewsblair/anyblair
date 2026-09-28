@@ -628,6 +628,21 @@ section:last-of-type {
   border-bottom-color: var(--color-on-dark-text);
 }
 
+.case-card.open {
+  background: var(--color-background-subtle);
+}
+
+.case-request--muted {
+  color: var(--color-text-tertiary);
+  border-bottom-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.case-card.open:hover {
+  background: var(--color-background-muted);
+}
+
 /* ─────────────────────────────────────────
    ABOUT / PHILOSOPHY
 ───────────────────────────────────────── */
@@ -695,100 +710,6 @@ section:last-of-type {
   color: var(--color-text-body);
 }
 
-/* ─────────────────────────────────────────
-   BUILT IN THE OPEN
-───────────────────────────────────────── */
-#built-in-the-open {
-  background: var(--color-background);
-}
-
-.open-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  padding: 48px;
-  border: var(--border-default);
-  border-radius: 4px;
-  background: var(--color-background-subtle);
-}
-
-.open-card-title {
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  margin-bottom: 16px;
-}
-
-.open-card-title em {
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--color-text-accent);
-}
-
-.open-card-body {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--color-text-body);
-  margin-bottom: 28px;
-  max-width: 440px;
-}
-
-.open-card-btn {
-  display: inline-flex;
-}
-
-.open-stack {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--color-border);
-  border: var(--border-default);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.open-stack-item {
-  background: var(--color-background);
-  padding: 20px 24px;
-  transition: background 0.15s;
-}
-
-.open-stack-item:hover {
-  background: var(--color-background-muted);
-}
-
-.open-stack-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  margin-bottom: 4px;
-}
-
-.open-stack-value {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
-
-.title-italic {
-  font-family: "Libre Baskerville", Georgia, serif;
-  font-style: italic;
-  color: var(--color-text-accent);
-}
-
-@media (max-width: 768px) {
-  .open-card {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 32px 24px;
-  }
-}
 
 /* ─────────────────────────────────────────
    EXPERTISE
